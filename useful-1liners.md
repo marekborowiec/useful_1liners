@@ -1,6 +1,6 @@
-* Print only line number 101:
+* Print only line number 101 in file:
 ```awk
-awk 'NR==101'
+awk 'NR==101' file
 ```
 * Print header with column/field numbers in a tab-separated file:
 ```awk
