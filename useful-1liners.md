@@ -8,7 +8,7 @@ awk 'NR==101, NR==202' file
 ```
 * Print header with column/field numbers in a tab-separated file:
 ```awk
-awk -F "\t" '{ for (f=0; f<=NF; f++) print f":"$f; exit }' file
+awk -F "\t" '{ for (f=1; f<=NF; f++) print f":"$f; exit }' file
 ```
 * Rename multiple files (`/bin/sh` executes):
 ```awk
@@ -25,4 +25,12 @@ awk 'ORS=NR%2 ? "\t" : "\n"' file
 * Print section of file between two regexes:
 ```awk
 awk '/regex1/, /regex2/' file
+```
+* Print average of third column:
+```awk
+awk '{ sum += $3 } END { if (NR > 0) print sum / NR }' file
+```
+* Sort on 3rd column, then print fields 2 through 5 of a tabular file, and align output:
+```bash
+sort -nk 3 file | cut -f 2-5 | column -t
 ```
