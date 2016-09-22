@@ -6,6 +6,10 @@ awk 'NR==101' file
 ```awk
 awk 'NR==101, NR==202' file
 ```
+* Print every 4th line in a file:
+```awk
+awk '0 == NR % 4' file
+```
 * Print header with column/field numbers in a tab-separated file:
 ```awk
 awk -F "\t" '{ for (f=1; f<=NF; f++) print f":"$f; exit }' file
