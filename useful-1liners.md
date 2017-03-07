@@ -38,3 +38,12 @@ awk '{ sum += $3 } END { if (NR > 0) print sum / NR }' file
 ```bash
 sort -nk 3 file | cut -f 2-5 | column -t
 ```
+* Print number of files present in each subdirectory of the current directory:
+```bash
+find . -maxdepth 1 -type d -exec bash -c "echo -ne '{} '; ls '{}' | wc -l" \;
+```
+
+* Check if the same file exists in all directories:
+```bash
+for d in ./bin*; do [[ -f ./$d/RAxML_bootstrap-out ]] && echo "File exist in dir $d" || echo "File does not exist in dir $d"; done
+```
