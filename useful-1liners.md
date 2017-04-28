@@ -47,3 +47,7 @@ find . -maxdepth 1 -type d -exec bash -c "echo -ne '{} '; ls '{}' | wc -l" \;
 ```bash
 for d in ./bin*; do [[ -f ./$d/RAxML_bootstrap-out ]] && echo "File exist in dir $d" || echo "File does not exist in dir $d"; done
 ```
+* Find directories that are missing files with the word `masked` in their name:
+```bash
+find base_dir -type d '!' -exec sh -c 'ls -1 "{}" | grep -q "*masked*"' ';' -print
+```
