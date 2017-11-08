@@ -51,3 +51,6 @@ for d in ./bin*; do [[ -f ./$d/RAxML_bootstrap-out ]] && echo "File exist in dir
 ```bash
 find base_dir -type d '!' -exec sh -c 'ls -1 "{}" | grep -q "*masked*"' ';' -print
 ```
+* Count number of pattern matches per line in a file 
+```bash
+grep -o -n "pattern" file | cut -d : -f 1 | uniq -c
