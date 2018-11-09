@@ -51,6 +51,11 @@ for d in ./bin*; do [[ -f ./$d/RAxML_bootstrap-out ]] && echo "File exist in dir
 ```bash
 find base_dir -type d '!' -exec sh -c 'ls -1 "{}" | grep -q "*masked*"' ';' -print
 ```
-* Count number of pattern matches per line in a file 
+* Count number of pattern matches per line in a file: 
 ```bash
 grep -o -n "pattern" file | cut -d : -f 1 | uniq -c
+```
+* Tar an archive and use parallel gzip with higher compression (`-9`) and 12 cores (`-p 12`):
+```bash
+tar cf - paths-to-archive | pigz -9 -p 12 > archive.tar.gz
+```
