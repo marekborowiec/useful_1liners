@@ -59,3 +59,7 @@ grep -o -n "pattern" file | cut -d : -f 1 | uniq -c
 ```bash
 tar cf - paths-to-archive | pigz -9 -p 12 > archive.tar.gz
 ```
+* Convert decimal values into percentages support in a NEWICK file:
+```
+sed -E 's/\)1:/\)100:/g;s/\)0\.([0-9][0-9]):/\)\1:/g;s/\)0.([0-9]):/\)\10:/g' file.newick
+```
